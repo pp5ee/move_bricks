@@ -1,0 +1,319 @@
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>  
+    <title>价格提醒设置</title>  
+    <script type="text/javascript">  
+        function Bu() {  
+			var bu_high=document.getElementById("bu_high1").value;
+			var bu_low=document.getElementById("bu_low1").value;
+			var mail=document.getElementById("mail").value;
+			  //这就是你获取到的值
+			 var url="http://119.28.194.152:3999/BU/" + bu_high+"/"+bu_low+"/"+mail
+			 window.location.href=url
+			 console.log(url)
+		
+        }  
+		function Nu() {  
+			var mail=document.getElementById("mail").value;
+			var bu_high2=document.getElementById("bu_high2").value;
+			var bu_low2=document.getElementById("bu_low2").value;
+			  //这就是你获取到的值
+			 var url="http://119.28.194.152:3999/NU/" + bu_high2+"/"+bu_low2+"/"+mail
+			 window.location.href=url
+			 console.log(url)
+		
+        } 
+		function NB() {  
+			var mail=document.getElementById("mail").value;
+			var bu_high3=document.getElementById("bu_high3").value;
+			var bu_low3=document.getElementById("bu_low3").value;
+			  //这就是你获取到的值
+			 var url="http://119.28.194.152:3999/NB/" + bu_high3+"/"+bu_low3+"/"+mail
+			 window.location.href=url
+			 console.log(url)
+		
+        } 
+    </script>  
+	<style type="text/css">
+	@CHARSET "UTF-8"; 
+.button { 
+  width: 73px; 
+  height: 50px; 
+  margin-bottom: 5px; 
+  border: 1px solid #ddd; 
+  border-radius: 1px; 
+  font-weight: bold; 
+  color: #1e395b; 
+  background: aqua; 
+  font-size:20px; 
+  border-radius: 3px; 
+} 
+.text { 
+  width: 300px; 
+  border: 1px solid #c2c2c2; 
+  height: 50px; 
+  border-radius: 5px; 
+  font-size: 24px; 
+  text-align: right; 
+  background: #ffffff; 
+  margin-top: 10px; 
+  margin-bottom: 10px; 
+} 
+.textShow{ 
+  width: 300px; 
+  border: 1px solid #c2c2c2; 
+  height: 40px; 
+  border-radius: 5px; 
+  font-size: 18px; 
+  text-align: right; 
+  background: #ffffff; 
+  margin-top: 10px; 
+  margin-bottom: 10px; 
+} 
+.cal{ 
+margin-left:200px; 
+border:2px solid #99ccff; 
+margin:100px auto; 
+position:relative; 
+width:330px; 
+height:420px; 
+border-radius: 10px; 
+} 
+.cont{ 
+ margin-left: 10px; 
+} 
+.funcBtn{ 
+padding-left: 580px; 
+border-radius: 10px; 
+font-size: 20px; 
+position: fixed; 
+} 
+	</style>
+</head>  
+<body>  
+	<div>
+	<h1>邮箱地址：</h1>
+	<input id="mail" type="text" onmouseover="this.style.borderColor='black';this.style.backgroundColor='plum'"
+style="width: 200; height: 35"onmouseout="this.style.borderColor='black';this.style.backgroundColor='#ffffff'" style="border-width:1px;border-color=red"/>
+	</div>
+    <div>
+	<h1> BTC/USDT：</h1>
+	高价 <input id="bu_high1" type="text" onmouseover="this.style.borderColor='black';this.style.backgroundColor='plum'"
+style="width: 200; height: 35"onmouseout="this.style.borderColor='black';this.style.backgroundColor='#ffffff'" style="border-width:1px;border-color=red"/>
+	
+    低价：
+	<input id="bu_low1" type="text" onmouseover="this.style.borderColor='black';this.style.backgroundColor='green'"
+	style="width: 200; height: 35"onmouseout="this.style.borderColor='black';this.style.backgroundColor='#ffffff'" style="border-width:1px;border-color=red"/>
+    <input type="button" onclick="Bu()" value="提交" />  
+	</div>
+	<br/>
+	<div>
+	<h1>NAS/USDT:</h1>高价：
+	<input id="bu_high2" type="text" onmouseover="this.style.borderColor='black';this.style.backgroundColor='plum'"
+style="width: 200; height: 35"onmouseout="this.style.borderColor='black';this.style.backgroundColor='#ffffff'" style="border-width:1px;border-color=red"/>
+	低价：
+	<input id="bu_low2" type="text" onmouseover="this.style.borderColor='black';this.style.backgroundColor='green'"
+style="width: 200; height: 35"onmouseout="this.style.borderColor='black';this.style.backgroundColor='#ffffff'" style="border-width:1px;border-color=red"/>
+    <input type="button" onclick="Nu()" value="提交" />
+	</div>
+	<br/>
+    <h1>NAS/BTC:</h1>
+	高价：
+	<input id="bu_high3" type="text" onmouseover="this.style.borderColor='black';this.style.backgroundColor='plum'"
+style="width: 200; height: 35"onmouseout="this.style.borderColor='black';this.style.backgroundColor='#ffffff'" style="border-width:1px;border-color=red"/>
+	低价：
+	<input id="bu_low3" type="text" onmouseover="this.style.borderColor='black';this.style.backgroundColor='green'"
+style="width: 200; height: 35"onmouseout="this.style.borderColor='black';this.style.backgroundColor='#ffffff'" style="border-width:1px;border-color=red"/>
+    <input type="button" onclick="NB()" value="提交" />
+	 <div id="cal" class="cal"> 
+    <form action="./calcuServlet" method="post" id="toCalcu"> 
+      <div class="cont"> 
+      <input id="upText" class="textShow" type="text" name="process" 
+         maxlength="10" readonly="readonly" />  
+      <input id="downText" class="text" type="text" name="text" value="0"
+         maxlength="10" readonly="readonly" />  
+           
+      <input type="button" class="button" name="deleteAll" value="C" onclick="clearAllText()" /> 
+      <input type="button" class="button" name="opposite" value="+/-" onclick="oppositeOp()" />  
+      <input type="button" class="button" name="delOne" value="←" onclick="deleteOneDigit()" />  
+      <input type="button" class="button" name="Add" value="+" onclick="clickOperation('+')" />      
+      <input type="button" class="button" name="seven" value="7" onclick="clickNum(7)" /> 
+      <input type="button" class="button" name="eight" value="8" onclick="clickNum(8)" /> 
+      <input type="button" class="button" name="nine" value="9" onclick="clickNum(9)" /> 
+      <input type="button" class="button" name="Reduce" value="-" onclick="clickOperation('-')" /> 
+      <input type="button" class="button" name="Four" value="4" onclick="clickNum(4)" /> 
+      <input type="button" class="button" name="Five" value="5" onclick="clickNum(5)" /> 
+      <input type="button" class="button" name="Sex" value="6" onclick="clickNum(6)" />  
+      <input type="button" class="button" name="Multip" value="x" onclick="clickOperation('x')" /> 
+      <input type="button" class="button" name="One" value="1" onclick="clickNum(1)" />  
+      <input type="button" class="button" name="Two" value="2" onclick="clickNum(2)" /> 
+      <input type="button" class="button" name="Three" value="3" onclick="clickNum(3)" /> 
+      <input type="button" class="button" name="Division" value="÷" onclick="clickOperation('/')" /> 
+      <input type="button" class="button" name="opposite" value="√" onclick="more()" />    
+      <input type="button" class="button" name="Zero" value="0" onclick="clickNum(0)" /> 
+      <input type="button" class="button" name="Point" value="." onclick="clickNum('.')" /> 
+      <input type="button" class="button" name="Equal" value="=" onclick="calcu()" />  
+      </div> 
+    </form> 
+  
+  </div> 
+  <div class="funcBtn"> 
+    <input type="button" id="show" class="button" value="show" onclick="show()" /> <input
+      type="button" id="hide" class="button" value="hide" onclick="hide()" /> 
+  </div> 
+    
+<script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script> 
+<script type="text/javascript" >var checkEqual = false;//Avoid repetition calcu 
+    var opFlag = false; //Check repetition add operation 
+    var upText = document.getElementById("upText"); 
+    var cal = document.getElementById("cal").style; 
+    var downText = document.getElementById("downText"); 
+      
+    function show() { 
+      cal.display = "block"; 
+    } 
+      
+    function hide() { 
+      cal.display = "none"; 
+    } 
+      
+    function clearAllText() { 
+      upText.value = ""; 
+      downText.value = "0"; 
+      opFlag = false; 
+      checkEqual = false; 
+    } 
+      
+    function oppositeOp(){ 
+      downText.value = -downText.value;     
+    } 
+      
+    function deleteOneDigit() { 
+      downText.value = downText.value.substring(0, downText.value.length - 1); 
+      if (downText.value == "" || (downText.value.charAt(0) == "-" && downText.value.charAt(1) == "")) { 
+        downText.value = "0"; 
+        return downText.value; 
+      } 
+      return downText.value; 
+    } 
+      
+    function clickNum(num) { 
+      if(num == ".") {         
+        checkIfAddPoint(num); 
+      } else { 
+        checkIfAddNum(num); 
+      } 
+      checkEqual = false; 
+    } 
+      
+    function checkIfAddPoint(num) { 
+      if((num=="." && downText.value == "0") || opFlag == true) { 
+        downText.value="0."; 
+        opFlag = false; 
+      } else if(num == "." && downText.value.indexOf(".") > -1) { 
+        downText.value; 
+      } else { 
+        downText.value += num; 
+      } 
+    } 
+      
+    function checkIfAddNum(num) { 
+       if((num != "." && downText.value == "0" && downText.value[1] != ".")  
+           || opFlag == true 
+           || downText.value == "Infinity"
+           || checkEqual == true) { 
+        downText.value = num; 
+        opFlag = false; 
+      } else { 
+        downText.value += num; 
+      } 
+    } 
+      
+    function clickOperation(op){ 
+      checkEqual = false; 
+      downText.value = checkdownTextValid(downText.value); 
+      downText.value = checkZero(upText.value,downText.value); 
+      switch(op){ 
+      case "+":{    
+        upText.value = appendupTextValue(upText.value,downText.value,"+"); 
+        opFlag = true; 
+       }break; 
+      case "-":{ 
+        upText.value = appendupTextValue(upText.value,downText.value,"-"); 
+        opFlag = true; 
+       }break; 
+      case "x":{ 
+        upText.value = appendupTextValue(upText.value,downText.value,"*"); 
+        opFlag = true; 
+       }break; 
+      case "/":{  
+        upText.value = appendupTextValue(upText.value,downText.value,"/"); 
+        opFlag = true; 
+       }break; 
+      } 
+    } 
+      
+    function checkdownTextValid(downText){ 
+      if(downText.charAt(downText.length-1) == "."){ 
+        return downText.substring(0,downText.length-1); 
+      }  
+      return downText; 
+    } 
+      
+    function checkZero(upText,downText){ 
+      if(upText.charAt(upText.length-1) == "/" && downText == "0"){ 
+        return "Error"; 
+      } 
+      return downText; 
+    } 
+      
+    function appendupTextValue(oldvalue,newvalue,operation){ 
+      if(oldvalue == ""){ 
+         return oldvalue = newvalue+operation; 
+      } else if(opFlag!=true){ 
+         return oldvaluee = oldvalue+newvalue+operation;  
+      } else{ 
+        return oldvalue.substring(0, oldvalue.length-1)+operation; 
+      } 
+    } 
+      
+    function calcu() { 
+      if(!checkEqual){   
+      downText.value = eval(upText.value+downText.value); 
+      upText.value = ""; 
+      checkEqual = true; 
+      } 
+    } 
+      
+    window.document.onkeydown = chooseKey; 
+    function chooseKey(evt){ 
+      if(evt.keyCode == 13){alert("=");} 
+      else if(evt.keyCode == 8){deleteOneDigit();} 
+      else if(evt.keyCode == 27){clearAllText();} 
+      else if(evt.keyCode == 48){clickNum('0');} 
+      else if(evt.keyCode == 49){clickNum('1');} 
+      else if(evt.keyCode == 50){clickNum('2');} 
+      else if(evt.keyCode == 51){clickNum('3');} 
+      else if(evt.keyCode == 52){clickNum('4');} 
+      else if(evt.keyCode == 53){clickNum('5');} 
+      else if(evt.keyCode == 54){clickNum('6');} 
+      else if(evt.keyCode == 55){clickNum('7');} 
+      else if(evt.keyCode == 56){clickNum('8');} 
+      else if(evt.keyCode == 57){clickNum('9');} 
+      else if(evt.keyCode == 96){clickNum('0');} 
+      else if(evt.keyCode == 97){clickNum('1');} 
+      else if(evt.keyCode == 98){clickNum('2');} 
+      else if(evt.keyCode == 99){clickNum('3');} 
+      else if(evt.keyCode == 100){clickNum('4');} 
+      else if(evt.keyCode == 101){clickNum('5');} 
+      else if(evt.keyCode == 102){clickNum('6');} 
+      else if(evt.keyCode == 103){clickNum('7');} 
+      else if(evt.keyCode == 104){clickNum('8');} 
+      else if(evt.keyCode == 105){clickNum('9');} 
+      else if(evt.keyCode == 110){clickNum('.');} 
+      else if(evt.keyCode == 106){clickOperation('x');} 
+      else if(evt.keyCode == 107){clickOperation('+');} 
+      else if(evt.keyCode == 111){clickOperation('÷');} 
+      else if(evt.keyCode == 109){clickOperation('-');} </script> 
+</body>  
+</html>
