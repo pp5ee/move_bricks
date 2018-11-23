@@ -8,8 +8,8 @@ from requests import Request, Session
 if __name__ == '__main__':
     
     """ huobi  = ccxt.huobipro()
-    huobi.apiKey='7548cd5e-b95cad3b-33ebac0a-f809d'
-    huobi.secret='63a58654-0cf1b5fa-9ded4823-a9165'
+    huobi.apiKey='7548cd5e-b95cad3b-33ebac0a-f809d111'
+    huobi.secret='63a58654-0cf1b5fa-9ded4823-a9165111'
         
     while 1==1:
         tiem1=int(round(time.time() * 1000))
