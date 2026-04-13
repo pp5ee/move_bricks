@@ -1,8 +1,8 @@
 ---
 current_round: 0
 max_iterations: 5
-codex_model: gpt-5.4
-codex_effort: high
+codex_model: deepseek-v3.1
+codex_effort: medium
 codex_timeout: 5400
 push_every_round: true
 full_review_round: 2
