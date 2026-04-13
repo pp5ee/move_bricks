@@ -1,4 +1,4 @@
-module go-impl
+module move_bricks
 
 go 1.21
 
