@@ -1,5 +1,5 @@
 ---
-current_round: 0
+current_round: 1
 max_iterations: 5
 codex_model: minimax-m2.5
 codex_effort: high
